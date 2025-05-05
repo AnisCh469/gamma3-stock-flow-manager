@@ -1,11 +1,20 @@
 
 import { Bell, Search, Menu } from "lucide-react";
+import { useState } from "react";
 
-export function Header() {
+interface HeaderProps {
+  toggleMobileSidebar: () => void;
+}
+
+export function Header({ toggleMobileSidebar }: HeaderProps) {
   return (
     <header className="bg-white border-b border-gray-200 py-3 px-4 flex items-center justify-between">
       <div className="flex items-center md:hidden">
-        <button className="text-gray-600">
+        <button 
+          className="text-gray-600"
+          onClick={toggleMobileSidebar}
+          aria-label="Toggle menu"
+        >
           <Menu className="h-6 w-6" />
         </button>
       </div>
