@@ -1,14 +1,18 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Package, 
   AlertTriangle, 
   TrendingDown, 
   TrendingUp,
-  Clock
+  Clock,
+  ChartPie,
+  ChartBar 
 } from "lucide-react";
 import { mockItems, mockMovements } from "../mockData";
 import { StockMovement } from "../types";
+import { StockStatusChart } from "@/components/charts/StockStatusChart";
+import { MovementTypeChart } from "@/components/charts/MovementTypeChart";
+import { ItemCategoryChart } from "@/components/charts/ItemCategoryChart";
 
 export default function Dashboard() {
   // Calculate stats
@@ -94,6 +98,13 @@ export default function Dashboard() {
             <p className="text-xs text-gray-500">Entrées et sorties</p>
           </CardContent>
         </Card>
+      </div>
+
+      {/* Charts Section */}
+      <div className="grid gap-6 md:grid-cols-3">
+        <StockStatusChart />
+        <ItemCategoryChart />
+        <MovementTypeChart />
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
